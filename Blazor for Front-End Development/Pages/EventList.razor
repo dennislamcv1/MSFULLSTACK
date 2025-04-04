@@ -1,0 +1,25 @@
+@page "/events"
+@inject EventService EventService
+
+@code {
+    private List<Event> events = new();
+
+    protected override void OnInitialized()
+    {
+        events = EventService.GetEvents();
+    }
+}
+
+<h3>Upcoming Events</h3>
+@if (events.Count == 0)
+{
+    <p>No events available.</p>
+}
+else
+{
+    @foreach (var eventItem in events)
+    {
+        <EventCard Event="@eventItem" />
+    }
+}
+

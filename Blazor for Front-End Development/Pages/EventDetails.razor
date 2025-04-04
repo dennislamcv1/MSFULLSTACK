@@ -1,0 +1,28 @@
+@page "/eventdetails/{id:int}"
+@inject EventService EventService
+@using EventEase.Models
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Event? selectedEvent;
+
+    protected override void OnInitialized()
+    {
+        selectedEvent = EventService.GetEventById(Id);
+    }
+}
+
+@if (selectedEvent is not null)
+{
+    <h3>@selectedEvent.Name</h3>
+    <p><strong>Date:</strong> @selectedEvent.Date.ToString("MMMM dd, yyyy")</p>
+    <p><strong>Location:</strong> @selectedEvent.Location</p>
+    <a href="/events" class="btn btn-secondary">Back to Events</a>
+}
+else
+{
+    <p>Event not found.</p>
+}
+
