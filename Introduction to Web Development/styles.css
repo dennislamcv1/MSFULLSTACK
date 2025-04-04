@@ -1,0 +1,44 @@
+/* styles.css */
+
+/* Basic styles for the body */
+body {
+    font-family: sans-serif; /* A common and readable sans-serif font */
+    margin: 20px; /* Adds some space around the content */
+    padding: 0; /* Removes default padding */
+    background-color: #f4f4f4; /* A light gray background */
+    color: #333; /* Dark gray text for readability */
+    line-height: 1.6; /* Improves text readability */
+}
+
+/* Styles for the header */
+header {
+    background-color: #333; /* A dark background for the header */
+    color: #fff; /* White text on the dark header */
+    padding: 1rem 0; /* Adds vertical padding */
+    text-align: center; /* Centers the navigation */
+}
+
+/* Styles for the navigation bar */
+nav ul {
+    list-style: none; /* Removes bullet points from the list */
+    padding: 0; /* Removes default padding from the list */
+    margin: 0; /* Removes default margin from the list */
+    display: flex; /* Enables flexbox for horizontal alignment */
+    justify-content: center; /* Centers the navigation links */
+}
+
+nav ul li {
+    margin: 0 15px; /* Adds spacing between the navigation links */
+}
+
+nav ul li a {
+    color: #fff; /* White color for the links */
+    text-decoration: none; /* Removes underlines from the links */
+    padding: 0.5rem 1rem; /* Adds padding around the links for better touch targets */
+    border-radius: 5px; /* Slightly rounded corners for the links */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Darker background on hover */
+}
