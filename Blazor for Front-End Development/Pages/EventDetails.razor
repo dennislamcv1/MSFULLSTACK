@@ -14,15 +14,17 @@
     }
 }
 
-@if (selectedEvent is not null)
+@if (SelectedEvent is not null)
 {
-    <h3>@selectedEvent.Name</h3>
-    <p><strong>Date:</strong> @selectedEvent.Date.ToString("MMMM dd, yyyy")</p>
-    <p><strong>Location:</strong> @selectedEvent.Location</p>
-    <a href="/events" class="btn btn-secondary">Back to Events</a>
+    <h3>@SelectedEvent.Name</h3>
+    <p><strong>Date:</strong> @SelectedEvent.Date.ToShortDateString()</p>
+    <p><strong>Location:</strong> @SelectedEvent.Location</p>
+    <a href="/events/register/@SelectedEvent.Id">Register</a>
 }
 else
 {
-    <p>Event not found.</p>
+    <div class="alert alert-warning">
+        Event not found. <a href="/events">Back to events</a>
+    </div>
 }
 

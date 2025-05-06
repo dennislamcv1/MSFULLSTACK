@@ -1,0 +1,16 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">@(!string.IsNullOrWhiteSpace(EventName) ? EventName : "Unnamed Event")</h5>
+        <p class="card-text">
+            <strong>Date:</strong> @(EventDate != DateTime.MinValue ? EventDate.ToString("MMMM dd, yyyy") : "TBD")<br />
+            <strong>Location:</strong> @(!string.IsNullOrWhiteSpace(EventLocation) ? EventLocation : "To be announced")
+        </p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string? EventName { get; set; }
+    [Parameter] public DateTime EventDate { get; set; }
+    [Parameter] public string? EventLocation { get; set; }
+}
+

@@ -1,0 +1,28 @@
+@page "/attendance/{Id:int}"
+@inject EventSessionService SessionService
+
+<h3>Attendees for Event ID: @Id</h3>
+
+@if (attendees.Any())
+{
+    <ul>
+        @foreach (var email in attendees)
+        {
+            <li>@email</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No attendees yet.</p>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private List<string> attendees = new();
+
+    protected override void OnInitialized()
+    {
+        attendees = SessionService.GetAttendees(Id).ToList();
+    }
+}
