@@ -1,5 +1,5 @@
 # MSFULLSTACK
-## Microsoft Full-Stack Developer Professional Certificate
+## Microsoft Full-Stack Developer Professional Certificate (12 course series)
 
 Are you ready to start a rewarding career in full-stack development? This Professional Certificate Program is your pathway to mastering both front-end and back-end technologies, ideal for aspiring developers eager to build complete web applications. This comprehensive program includes twelve courses that will equip you with the essential skills needed to excel in roles such as Full-Stack Developer, Web Developer, and Software Engineer.
 
