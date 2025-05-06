@@ -1,0 +1,4 @@
+C:\Users\Dennis\Desktop\Introduction to Programming With C#\LibraryApp\obj\Debug\net8.0\LibraryApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dennis\Desktop\Introduction to Programming With C#\LibraryApp\obj\Debug\net8.0\LibraryApp.AssemblyInfoInputs.cache
+C:\Users\Dennis\Desktop\Introduction to Programming With C#\LibraryApp\obj\Debug\net8.0\LibraryApp.AssemblyInfo.cs
+C:\Users\Dennis\Desktop\Introduction to Programming With C#\LibraryApp\obj\Debug\net8.0\LibraryApp.csproj.CoreCompileInputs.cache
