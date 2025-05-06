@@ -1,16 +1,21 @@
 // script.js
 
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerIcon = document.querySelector('.hamburger-icon');
-    const mainNav = document.querySelector('nav[role="navigation"]'); // Updated selector
+const nav = document.querySelector('nav')
+const hamburger = document.querySelector('.hamburger-icon')
 
-    if (hamburgerIcon && mainNav) {
-        hamburgerIcon.addEventListener('click', toggleMenu);
+const toggleMenu = () => {
+  nav.classList.toggle('active')
+  console.log('Menu toggled')
+}
 
-        function toggleMenu() {
-            mainNav.classList.toggle('nav-open');
-        }
-    } else {
-        console.error("Hamburger icon or navigation menu not found in the HTML.");
-    }
-});
+hamburger.addEventListener('click', toggleMenu)
+
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    e.preventDefault()
+    const targetId = anchor.getAttribute('href')
+    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' })
+    nav.classList.remove('active') // hide menu on selection (mobile)
+    console.log(`Scrolled to ${targetId}`)
+  })
+})
