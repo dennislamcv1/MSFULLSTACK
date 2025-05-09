@@ -1,0 +1,30 @@
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<h3>Register</h3>
+
+<EditForm Model="@registerModel" OnValidSubmit="HandleRegister">
+    <InputText @bind-Value="registerModel.Email" placeholder="Email" />
+    <InputText @bind-Value="registerModel.Password" placeholder="Password" type="password" />
+    <button type="submit">Register</button>
+</EditForm>
+
+<p>@statusMessage</p>
+
+@code {
+    private RegisterModel registerModel = new();
+    private string statusMessage = "";
+
+    private async Task HandleRegister()
+    {
+        var response = await Http.PostAsJsonAsync("api/auth/register", registerModel);
+        statusMessage = response.IsSuccessStatusCode ? "Registered!" : "Failed to register.";
+        if (response.IsSuccessStatusCode) Nav.NavigateTo("/login");
+    }
+
+    public class RegisterModel
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+}

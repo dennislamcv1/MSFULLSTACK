@@ -1,0 +1,32 @@
+@using SkillSnap.Client.Models
+@inject ProjectService ProjectService
+
+<h3>Projects</h3>
+
+@* Components/ProjectList.razor *@
+<div class="project-list">
+    @foreach (var project in projects)
+    {
+        <div class="project-card">
+            <img src="@project.ImageUrl" alt="@project.Title" />
+            <h4>@project.Title</h4>
+            <p>@project.Description</p>
+        </div>
+    }
+</div>
+
+@code {
+    private List<Project> projects;
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await ProjectService.GetProjectsAsync();
+    }
+};
+
+    public class Project
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+    }
+}

@@ -1,0 +1,30 @@
+@inject AuthService AuthService
+@inject NavigationManager Nav
+
+<h3>Login</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+    <InputText @bind-Value="loginModel.Email" placeholder="Email" />
+    <InputText @bind-Value="loginModel.Password" placeholder="Password" type="password" />
+    <button type="submit">Login</button>
+</EditForm>
+
+<p>@statusMessage</p>
+
+@code {
+    private LoginModel loginModel = new();
+    private string statusMessage = "";
+
+    private async Task HandleLogin()
+    {
+        var success = await AuthService.LoginAsync(loginModel.Email, loginModel.Password);
+        statusMessage = success ? "Login successful!" : "Login failed!";
+        if (success) Nav.NavigateTo("/");
+    }
+
+    public class LoginModel
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+}

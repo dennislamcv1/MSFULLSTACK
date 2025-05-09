@@ -1,0 +1,51 @@
+@using SkillSnap.Client.Models
+@inject SkillService SkillService
+
+<h3>Skills</h3>
+
+
+
+@* Components/SkillTags.razor *@
+<div class="skill-tags">
+    @foreach (var skill in skills)
+    {
+        <span class="tag">@skill</span>
+    }
+</div>
+
+@code {
+    private List<Skill>? skills;
+
+    protected override async Task OnInitializedAsync()
+    {
+        skills = await SkillService.GetSkillsAsync();
+    }
+
+    private async Task AddTestSkill()
+    {
+        var newSkill = new Skill
+        {
+            Name = "ASP.NET Core",
+            Level = "Intermediate",
+            PortfolioUserId = 1
+        };
+
+        await SkillService.AddSkillAsync(newSkill);
+        skills = await SkillService.GetSkillsAsync();
+    }
+}
+<style>
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tag {
+        background-color: #007bff;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+    }
+</style>
